@@ -1,5 +1,9 @@
 body {
     margin: 0;
+    background: rgb(238, 174, 202);
+    background: radial-gradient( circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    color: #fff;
+    font-family: "Helvetica Neue", Helvetica, Arial;
 }
 
 .main-container {
@@ -14,7 +18,8 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 50%;
+    width: 100%;
+    font-size: 3em;
 }
 
 #blocks {
@@ -25,12 +30,29 @@ body {
 
 .plain-block {
     background: #e5e7e8;
-    border: 1px solid black;
+    border: 1px solid rgb(112 172 239);
+    max-width: 250px;
+    max-height: 250px;
 }
 
 .shake {
     animation: shake 0.8s infinite;
     transform: translate3d(0, 0, 0);
+}
+
+.start {
+    cursor: pointer;
+    width: 20%;
+    text-transform: uppercase;
+    padding: 1em 2em;
+    border: 1px solid rgb(112 172 239);
+    color: inherit;
+    background: rgb(238, 174, 202);
+    background: linear-gradient( 90deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+}
+
+.start:hover {
+    transform: scale(1.1);
 }
 
 @keyframes shake {
