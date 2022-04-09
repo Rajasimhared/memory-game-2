@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+}
+
 .main-container {
     display: flex;
     justify-content: space-around;
@@ -16,12 +20,12 @@
 #blocks {
     display: flex;
     min-height: 150px;
+    cursor: pointer;
 }
 
 .plain-block {
     background: #e5e7e8;
     border: 1px solid black;
-    min-width: 150px;
 }
 
 .shake {

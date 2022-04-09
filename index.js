@@ -14,6 +14,8 @@ Block.prototype.init = function() {
     for (let i = 1; i <= this.count; i++) {
         const iElem = document.createElement("div");
         iElem.classList.add("plain-block");
+        iElem.style.width = 100 / this.count - 10 + "vw";
+        iElem.style.height = 100 / this.count - 10 + "vw";
         iElem.dataset.value = i;
         fragment.appendChild(iElem);
     }
@@ -42,11 +44,14 @@ Block.prototype.onClick = function(e) {
             this.element.classList.remove('shake');
         }, 1000)
         this.score = 0;
+        this.frequency = 1;
         updateScores(this.score)
     }
     if (this.glowOrder.length === 0) {
         ++this.score;
-        updateScores(this.score)
+        ++this.frequency;
+        updateScores(this.score);
+        this.glow();
     }
 }
 
@@ -73,4 +78,8 @@ const updateScores = (score) => {
 const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
 let gameBlocks = new Block("#blocks", 5, () => {});
-gameBlocks.glow();
+
+let startButton = document.querySelector('.start');
+startButton.addEventListener("click", () => {
+    gameBlocks.glow();
+})
